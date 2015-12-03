@@ -143,7 +143,7 @@ Bundle 'cSyntaxAfter'
 Bundle 'Mark--Karkat'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neocomplcache.vim'
 Bundle 'bufexplorer.zip'
 
 
