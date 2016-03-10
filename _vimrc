@@ -145,6 +145,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'bufexplorer.zip'
+Bundle 'OmniCppComplete'
 
 
 
@@ -634,6 +635,17 @@ let g:neocomplcache_enable_at_startup = 1     "vim 启动时启用插件
 " <Leader>bs 水平分割窗口显示缓存列表，并在缓存列表窗口中打开选定文件
 " <Leader>bv 垂直分割窗口显示缓存列表，并在缓存列表窗口中打开选定文件
 
+" -----------------------------------------------------------------------------
+"  < omnicppcomplete 插件配置 >
+" -----------------------------------------------------------------------------
+" 用于C/C++代码补全，这种补全主要针对命名空间、类、结构、共同体等进行补全，详细
+" 说明可以参考帮助或网络教程等
+" 使用前先执行如下 ctags 命令（本配置中可以直接使用 ccvext 插件来执行以下命令）
+" ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
+" 我使用上面的参数生成标签后，对函数使用跳转时会出现多个选择
+" 所以我就将--c++-kinds=+p参数给去掉了，如果大侠有什么其它解决方法希望不要保留呀
+set completeopt=menu                        "关闭预览窗口
+
 
 " =============================================================================
 "                          << 以下为常用工具配置 >>
@@ -681,8 +693,8 @@ nmap <Leader>tn :tnext<CR>
 nmap <Leader>tp :tprevious<CR>
 
 " make tags by ctags
-nmap <silent> <F6> <Esc>:!ctags -R *<CR>
-imap <silent> <F6> <Esc>:w<CR>:!ctags -R *<CR>
+nmap <silent> <F6> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
+imap <silent> <F6> <Esc>:w<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q<CR>
 " tags
 set tags=~/work/tags/commlib_tags,~/work/tags/glibc_tags,tags;
 
